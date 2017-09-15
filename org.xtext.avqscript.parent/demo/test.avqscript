@@ -1,0 +1,12 @@
+script package foo
+
+    someVariable text := 0;
+    otherThing boolean := true;
+
+    function blah
+ 
+        localVariable text := "";
+
+    end function
+
+end foo

@@ -1,0 +1,52 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+     	classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
+		classpath 'org.xtext:xtext-gradle-plugin:1.0.15'
+		classpath 'com.moowork.gradle:gradle-node-plugin:0.13'
+	}
+}
+
+plugins {
+	id 'com.moowork.node' version '1.1.1'
+	id 'net.researchgate.release' version '2.4.0'
+}
+
+node {
+	version = '6.2.2'
+	npmVersion = '3.10.6'
+	download = true
+}
+
+
+subprojects {
+	ext.xtextVersion = '2.12.0'
+	repositories {
+		jcenter()
+	}
+	
+	apply plugin: 'java'
+	apply plugin: 'org.xtext.xtend'
+	apply from: "${rootDir}/gradle/source-layout.gradle"
+	apply from: "${rootDir}/gradle/maven-deployment.gradle"
+	apply plugin: 'eclipse'
+	apply plugin: 'idea'
+	apply plugin: 'com.github.johnrengelman.shadow'
+	
+	group = 'org.xtext.avqscript'
+	version = '1.0.0-SNAPSHOT'
+	
+	sourceCompatibility = '1.8'
+	targetCompatibility = '1.8'
+	
+	configurations.all {
+		exclude group: 'asm'
+	}
+}
+
+// Workaround for issue https://github.com/researchgate/gradle-release/issues/144
+task build {
+	dependsOn subprojects.findResults { it.tasks.findByName('build') }
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="avqscript"
+            id="org.eclipse.xtext.avqscript"
+            name="Avaloq Script"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.lsp4e.languageServer">
+      <server
+            class="org.xtext.avqscript.lsp4e.AvqScriptLanguageServer"
+            id="org.eclipse.xtext.avqscript.server"
+            label="AvqScript Language Server">
+      </server>
+      <contentTypeMapping
+            contentType="org.eclipse.xtext.avqscript"
+            id="org.eclipse.xtext.avqscript.server">
+      </contentTypeMapping>
+   </extension>
+   <extension
+         point="org.eclipse.ui.genericeditor.presentationReconcilers">
+      <presentationReconciler
+            class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
+            contentType="org.eclipse.xtext.avqscript">
+      </presentationReconciler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.eclipse.xtext.avqscript"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+   <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+            path="syntaxes/avqscript.tmLanguage.json"
+            scopeName="text.html.avqscript">
+      </grammar>
+      <scopeNameContentTypeBinding
+            contentTypeId="org.eclipse.xtext.avqscript"
+            scopeName="text.html.avqscript">
+      </scopeNameContentTypeBinding>
+   </extension>
+
+</plugin>

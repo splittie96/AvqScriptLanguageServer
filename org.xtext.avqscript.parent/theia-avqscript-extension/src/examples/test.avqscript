@@ -1,0 +1,20 @@
+script package foo
+
+    someVariable number := aaa;
+    otherThing boolean := true;
+
+
+    function blah(blah text;)
+        localVariable text := "blah";
+    begin
+    	//Stuff
+    end function
+    
+    
+    function blah2(param1 boolean;)
+    begin
+    	blah(param1);
+    	blah(someVariable);
+    end function 
+
+end foo

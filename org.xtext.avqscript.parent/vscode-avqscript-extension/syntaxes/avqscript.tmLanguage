@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>*.avqscript</string>
+	</array>
+	<key>name</key>
+	<string>calc</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>keyword.control.calc</string>
+			<key>match</key>
+			<string>\b(begin|script|package|function|end)\b</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.avqscript</string>
+</dict>
+</plist>

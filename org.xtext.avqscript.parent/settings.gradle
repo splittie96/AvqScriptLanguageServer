@@ -1,0 +1,4 @@
+include 'org.xtext.avqscript'
+include 'org.xtext.avqscript.ide'
+include 'vscode-avqscript-extension'
+include 'theia-avqscript-extension'
